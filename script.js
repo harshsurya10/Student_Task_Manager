@@ -1,7 +1,7 @@
-cat > script.js <<'EOF'
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskText = taskInput.value.trim();
+    const date = document.getElementById("dateInput").value;
 
     if (taskText === "") {
         alert("Please enter a task.");
@@ -13,7 +13,7 @@ function addTask() {
     const li = document.createElement("li");
 
     li.innerHTML = `
-        <span>${taskText}</span>
+        <span>${taskText} - Due: ${date}</span>
         <button class="delete-btn" onclick="deleteTask(this)">
             Delete
         </button>
@@ -26,4 +26,3 @@ function addTask() {
 function deleteTask(button) {
     button.parentElement.remove();
 }
-EOF
